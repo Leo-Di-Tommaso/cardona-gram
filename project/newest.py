@@ -1,5 +1,5 @@
 import random
-
+from word_search import lookup_word
 def get_letters(length):
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     letter_set = random.sample(alphabet, int(length))
@@ -9,29 +9,6 @@ def get_letters(length):
 
 # compare input of the user to a dictonary
 # I have no idea how to access the dictonary yet, there was no API
-import requests
-def real_word():
-    print('Searching Oxford Dictonary for your input')
-
-    # Craft a request wikipedia 
-    # url = f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={s}&srlimit=1&format=json"
-    app_id =
-    app_key =
-    url= 'https://www.oed.com/discover/word-lists'
-
-    headers = {'app_id':app_id, 'app_key':app_key}
-
-    # Send that request from our computer to the one running wikipedia
-    # Read the response from the wikipedia computer
-    response = requests.get(url, headers=headers)
-
-    # Print the answer to our question ... sorta
-    if response.status_code == 200:
-        print(f"The word exists!")
-        return True
-    else:
-        print(f"The word does not exist")
-        return False
     
     
 def main():
@@ -52,7 +29,7 @@ def main():
     print('You may now begin finding words with this letter set!')
     while True:
         word = input('Word: ')
-        if word in # database of valid words?:
+        if lookup_word(word):
             points += len(word)
             print(f'That is a valid word! You earned {len(word)} points and are now at {points} total points')
             words_created.append(word)
