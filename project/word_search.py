@@ -7,12 +7,12 @@ def lookup_word(word):
     #     return None
     # return response.json()
     if response.status_code == 200:
-        print(f"DEBUG: The word exists!")
-        return True 
+        print(f"DEBUG: {word} is a word!")
+        return True
     else:
-        print(f"DEBUG: The word does not exist")
+        # print(f"DEBUG: The word does not exist")
         return False
 
-data = lookup_word("lion")
+# data = lookup_word("lion")
 # print(data[0]["meanings"][0]["definitions"][0]["definition"])
 

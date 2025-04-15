@@ -10,7 +10,8 @@ def get_letters(length):
 def gen_words():
     words = []
     word = ""
-    print('You can work with a set of letters of length 5 to 10.')
+    w = []
+    # print('You can work with a set of letters of length 5 to 10.')
    # while True:
     num = int(input('Enter how many letters you want to work with: '))
         # if 5 <= num <= 10:        
@@ -20,12 +21,13 @@ def gen_words():
         #     print('Number must be between 5 and 10. Try again.')
     print(f'DEBUG {letters}')
     for k in range(num):
-        words = list(permutations(letters, r = k))
+        words += list(permutations(letters, r = k))
 #    print(words)
     for i in range(len(words)):
-        word.join(words[i])
+        word = word.join(words[i]) # "this line is the enemy"     -Tim
+        # print(f'DEBUG: {word}')
         if lookup_word(word):
-            w += word
+            w.append(word)
 
     print(w)
 
