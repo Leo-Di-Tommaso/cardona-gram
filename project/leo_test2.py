@@ -1,8 +1,8 @@
-import requests
+import requests as r
 
 def lookup_word(word):
     url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
-    response = requests.get(url)
+    response = r.get(url)
     if response.status_code != 200:
         return None
     return response.json()
