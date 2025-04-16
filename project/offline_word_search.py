@@ -1,11 +1,10 @@
 # pip install PyDictionary
-from PyDictionary import PyDictionary as dictionary
+import enchant
+
 def offline_lookup(word):
-    if dictionary.meaning(word):
-        # print(f"Definition: {dictionary[word]}")
+    d = enchant.Dict("en_US")
+    if d.check(word) == True:
         return True
     else:
-        # print("Word not found.")
         return False
     
-print(offline_lookup("word"))

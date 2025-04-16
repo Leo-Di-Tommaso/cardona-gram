@@ -1,6 +1,8 @@
 import random
 from word_search import lookup_word
+from offline_word_search import offline_lookup
 from itertools import permutations
+import enchant
 
 def get_letters(length):
     '''given a number, it creates a list of random letters of the length requested'''
@@ -25,15 +27,19 @@ def gen_words():
         # else:
         #     print('Number must be between 5 and 10. Try again.')
     print(f'DEBUG {letters}')
-    for k in range(num):
+
+    ## create permutations
+    for k in range(2, num+1,1):
         words += list(permutations(letters, r = k))
-#    print(words)
+    # print(words)
+
     for i in range(len(words)):
         word = word.join(words[i]) # "this line is the enemy"     -Tim
-        # print(f'DEBUG: {word}')
-        if lookup_word(word):
+        print(f'DEBUG: the words are {word}')
+        if offline_lookup(word): # offline version
+        # if lookup_word(word): online version
             w.append(word)
 
-    print(w)
+    print(f'the possible words with the generated letters are: {w}')
 
 gen_words()
