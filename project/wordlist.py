@@ -25,11 +25,11 @@ def gen_words():
         # else:
         #     print('Number must be between 5 and 10. Try again.')
     print(f'DEBUG {letters}')
-    for k in range(1, num, 1):
-        words.append(permutations(letters, r = k))
-    print(f'DEBUG: {words}')
+    for k in range(num):
+        words += list(permutations(letters, r = k))
+#    print(words)
     for i in range(len(words)):
-        word.join(words[i]) # "this line is the enemy"     -Tim
+        word = word.join(words[i]) # "this line is the enemy"     -Tim
         # print(f'DEBUG: {word}')
         if lookup_word(word):
             w.append(word)
