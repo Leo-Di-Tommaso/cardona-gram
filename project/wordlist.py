@@ -28,12 +28,12 @@ def gen_words():
         #     print('Number must be between 5 and 10. Try again.')
     print(f'DEBUG {letters}')
 
-    ## create permutations
-    for k in range(2, num+1,1):
+    ## create permutations 
+    for k in range(2, num+1,1):                                    
         words += list(permutations(letters, r = k))
     # print(words)
 
-    for i in range(len(words)):
+    for i in range(len(words)):                                                 # i think something is wrong with the permutations when looking at the debug
         word = word.join(words[i]) # "this line is the enemy"     -Tim
         print(f'DEBUG: the words are {word}')
         if offline_lookup(word): # offline version
@@ -41,5 +41,5 @@ def gen_words():
             w.append(word)
 
     print(f'the possible words with the generated letters are: {w}')
-
+    return w
 gen_words()
