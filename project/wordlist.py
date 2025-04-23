@@ -41,5 +41,6 @@ def gen_words():
             w.append(word)
 
     print(f'the possible words with the generated letters are: {w}')
-    return w
+    # return w
+    return w and letters    #because we need letters for main()
 gen_words()
