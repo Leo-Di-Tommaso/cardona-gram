@@ -1,6 +1,6 @@
+# this document generates a list of words to use for the game
 import random
-from word_search import lookup_word
-from offline_word_search import offline_lookup
+from word_search import online_lookup, offline_lookup
 from itertools import permutations
 import enchant
 
