@@ -1,5 +1,5 @@
 import random
-from word_search import lookup_word
+from word_search import online_lookup
 def get_letters(length):
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     letter_set = random.sample(alphabet, int(length))
@@ -31,7 +31,7 @@ def main():
     print('You have {lives} live(s)')
     while True:
         word = input('Word: ')
-        if lookup_word(word):
+        if online_lookup(word):
             points += len(word)
             print(f'That is a valid word! You earned {len(word)} points and are now at {points} total points')
             words_created.append(word)

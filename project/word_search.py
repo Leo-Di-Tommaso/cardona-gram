@@ -21,7 +21,7 @@ def online_lookup(word):
 
 # ONLINE LOOKUP:
 # pip install PyDictionary
-# import enchant
+import enchant
 
 def offline_lookup(word):
     d = enchant.Dict("en_US")

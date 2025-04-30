@@ -1,46 +1,43 @@
 # this document generates a list of words to use for the game
+# in this copy i removed the ability for user to choose length of letter set
 import random
 from word_search import online_lookup, offline_lookup
 from itertools import permutations
 import enchant
 
-def get_letters(length):
-    '''given a number, it creates a list of random letters of the length requested'''
+def get_letters():
+    '''creates a list of random letters to be used in the game'''
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    letter_set = random.sample(alphabet, int(length))
+    letter_set = random.sample(alphabet, 6)
     return letter_set
 
-def gen_words():
-    '''Given a number, the function recalls the function get_letters(length). it then uses the list of letters to 
+def gen_words(letters):
+    '''This function recalls the function get_letters(). it then uses the list of letters to 
     create permutations of the letters with different lenghts. the permutations are then joined together into words 
     and checked in an online dictionary. if they exist, they are added to a list of words that exist that the client 
     will then try to guess'''
     words = []
-    word = ""
-    w = []
-    # print('You can work with a set of letters of length 5 to 10.')
-   # while True:
-    num = int(input('Enter how many letters you want to work with: '))
-        # if 5 <= num <= 10:        
-    letters = get_letters(num)
-            # break
-        # else:
-        #     print('Number must be between 5 and 10. Try again.')
+    # letters = get_letters()
     print(f'DEBUG {letters}')
 
     ## create permutations 
-    for k in range(2, num+1,1):                                    
-        words += list(permutations(letters, r = k))
-    # print(words)
+    for k in range(3,7,1):
+        combinations = [''.join(x) for x in permutations(letters, r=k)]
+        for word in combinations:
+            if online_lookup(word): 
+            # if offline_lookup(word):
+                words.append(word)                                  
+    print(f'DEBUG: the possible words with the generated letters are: {words}')
+    return words 
 
-    for i in range(len(words)):                                                 # i think something is wrong with the permutations when looking at the debug
-        word = word.join(words[i]) # "this line is the enemy"     -Tim
-        print(f'DEBUG: the words are {word}')
-        if offline_lookup(word): # offline version
-        # if lookup_word(word): online version
-            w.append(word)
+def check_words():
+    '''this function makes sure that the generated word list has at least 5 possible words, otherwise the game
+    can't really work'''
+    while True:
+        letters = get_letters()
+        wordlist = gen_words(letters)
+        if len(wordlist) >= 5:
+            return wordlist and letters # because we need letters for main()
+            break
 
-    print(f'the possible words with the generated letters are: {w}')
-    # return w
-    return w and letters    #because we need letters for main()
-gen_words()
+check_words()
