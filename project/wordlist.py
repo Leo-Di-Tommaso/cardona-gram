@@ -1,7 +1,8 @@
 # this document generates a list of words to use for the game
 # in this copy i removed the ability for user to choose length of letter set
 import random
-from word_search import online_lookup, offline_lookup
+from word_search import online_lookup, offline_lookup, csv_search
+
 from itertools import permutations
 import enchant
 
@@ -24,8 +25,9 @@ def gen_words(letters):
     for k in range(3,7,1):
         combinations = [''.join(x) for x in permutations(letters, r=k)]
         for word in combinations:
-            if online_lookup(word): 
-            # if offline_lookup(word):
+          #  if online_lookup(word): 
+          #  if offline_lookup(word):
+            if csv_search(word):
                 words.append(word)                                  
     print(f'DEBUG: the possible words with the generated letters are: {words}')
     return words 

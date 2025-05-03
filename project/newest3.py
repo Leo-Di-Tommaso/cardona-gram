@@ -11,7 +11,7 @@ def main():
     # introduction to game
     print('Welcome to Anagrams!\nThis is a CS 32 Final Project\nMade by Leo, Tim and Ana')
     instructions=input('Do you need instructions? (yes/no): ')
-    if mainstructionsma == 'yes':
+    if instructions == 'yes':
         print('You will receive a letter set consisting of 5 letters.\nGuess as many words as you can.\nYou may only use every letter ONCE in each word.')
     #use gen_words to get user input of how many letters he wants, and to create the letter_set
     print('Creating a letter set now. This can take up to 2 minutes...')

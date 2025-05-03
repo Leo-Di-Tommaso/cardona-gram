@@ -1,8 +1,19 @@
 # this file has our functions which make sure words are exist in english
 
+# CSV LOOKUP:
+import csv
+def csv_search(word):
+    # word = word.capitalize()
+    with open('c:/Users/Leonardo/Documents/GitHub/cardona-gram/project/files/4000-most-common-english-words-csv.csv', 'r') as file:
+        csv_reader = csv.reader(file)
+        for row in csv_reader:
+            if word in row[0] and len(row[0]) == len(word):
+                print(word)
+                return True
+        
+
 # ONLINE LOOKUP:
 import requests as r
-
 def online_lookup(word):
     url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
     response = r.get(url)
@@ -19,10 +30,13 @@ def online_lookup(word):
 # data = lookup_word("lion")
 # print(data[0]["meanings"][0]["definitions"][0]["definition"])
 
-# ONLINE LOOKUP:
-# pip install PyDictionary
-import enchant
 
+
+
+# pip install PyDictionary
+# OFFLINE LOOKUP:
+
+import enchant
 def offline_lookup(word):
     d = enchant.Dict("en_US")
     if d.check(word) == True:
