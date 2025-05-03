@@ -8,19 +8,19 @@ from wordlist import gen_words, check_words, get_letters, check_words1
     
 def main():
     points = 0
-    lives=3
+    lives = 3
     # introduction to game
     print('Welcome to Anagrams!\nThis is a CS 32 Final Project\nMade by Leo, Tim and Ana')
-    mama=input('Do you need instructions?(yes/no)')
+    mama=input('Do you need instructions?(yes/no: ')
     if mama=='yes':
-        print('You will receive a letter set consisting out of 5 letters.\nGuess as many words as you can.\nYou may only use every letter ONCE.\nYou have 3 lives. If you guess an incorrect word, you loose a life.\nGet as many points as you can!')
+        print('You will receive a letter set consisting of 5 letters.\nGuess as many words as you can.\nYou may only use every letter ONCE for each word.\nYou have 3 lives. If you guess a nonexistent word, you lose a life.\nGet as many points as you can!')
     #use gen_words to get user input of how many letters he wants, and to create the letter_set
     print('Creating a letter set now. This can take up to 2 minutes...')
     w, letters = check_words1()
     
     print(f'Your letter set is: {letters}')
-    print(f'You have to guess {len(w)} word(s)')
-    print(f'you have {lives} lives.')
+    print(f'Possible words: {len(w)}')
+    print(f'You have {lives} lives.')
 
         
     # start game
@@ -31,7 +31,7 @@ def main():
             points += len(word)
             print(f'That is a valid word! You earned {len(word)} points and are now at {points} total points')
             w.remove(word)
-            print(f'You have {len(w)} words left to guess')
+            print(f'You have {len(w)} word(s) left to guess')
             if len(w)==0:
                 print('Good job so far! You will receive a new set of letters now.')
                 print('Creating a new letter set. This can take up to 2 minutes...')
