@@ -38,6 +38,41 @@ def check_words():
         wordlist = gen_words(letters)
         if len(wordlist) >= 5:
             return wordlist and letters # because we need letters for main()
-            break
+            
 
-check_words()
+# check_words()
+
+
+
+
+def get_letters1():
+    '''creates a list of random letters to be used in the game'''
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    vowels = ['a','e','i','o','u']
+    letter_set = random.sample(alphabet, 6)
+    vowel_count = sum(1 for letter in letter_set if letter in vowels)
+    if vowel_count >=2:
+        return letter_set
+    else:
+        return get_letters1()
+
+def get_letters2():
+    '''creates a list of random letters to be used in the game'''
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    letter_set = random.sample(alphabet, 5)
+    return letter_set
+   
+    
+
+def check_words1():
+    '''this function makes sure that the generated word list has at least 3 possible words, otherwise the game
+    can't really work'''
+    while True:
+        letters = get_letters2()
+        wordlist = gen_words(letters)
+        if len(wordlist) >= 1:
+            return wordlist, letters # because we need letters for main()
+            
+
+# print(check_words1())
+# gen_words(['a','f','s','l'])
