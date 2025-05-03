@@ -1,10 +1,12 @@
 # this file has our functions which make sure words are exist in english
 
-# CSV LOOKUP:
+# CSV LOOKUP: c:/Users/timla/OneDrive
 import csv
+import os
 def csv_search(word):
     # word = word.capitalize()
-    with open('c:/Users/Leonardo/Documents/GitHub/cardona-gram/project/files/4000-most-common-english-words-csv.csv', 'r') as file:
+    file_path = os.path.join("project","files","4000-most-common-english-words-csv.csv")
+    with open(file_path, 'r') as file:
         csv_reader = csv.reader(file)
         for row in csv_reader:
             if word in row[0] and len(row[0]) == len(word):
