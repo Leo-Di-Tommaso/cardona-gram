@@ -1,6 +1,9 @@
+# this file has our functions which make sure words are exist in english
+
+# ONLINE LOOKUP:
 import requests as r
 
-def lookup_word(word):
+def online_lookup(word):
     url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
     response = r.get(url)
     # if response.status_code != 200:
@@ -16,3 +19,13 @@ def lookup_word(word):
 # data = lookup_word("lion")
 # print(data[0]["meanings"][0]["definitions"][0]["definition"])
 
+# ONLINE LOOKUP:
+# pip install PyDictionary
+import enchant
+
+def offline_lookup(word):
+    d = enchant.Dict("en_US")
+    if d.check(word) == True:
+        return True
+    else:
+        return False
