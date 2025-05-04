@@ -13,6 +13,7 @@ def main():
 
         print('Creating a letter set now...')
 
+        # create a letter set of 6 letters with 5 to 10 possible words to find.
         w, letters = check_words_5_t_10()
         print(f'Your letter set is: {letters}')
         print(f'Possible words: {len(w)}')
@@ -20,6 +21,7 @@ def main():
 
         guessed_words = []
 
+        # while True loop for every letter set
         while True:
             word = input('Word: ')
             if word in w:
