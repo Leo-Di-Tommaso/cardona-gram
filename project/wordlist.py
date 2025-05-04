@@ -55,7 +55,7 @@ def check_words3():
 def check_words_5_t_10():
     '''this function generates letters, then words and then makes sure that the generated word list has between 5 and 10 words'''
     while True:
-        letters = get_letters(6)
+        letters = get_letters(7)
         wordlist = gen_words(letters)
         if len(wordlist) >= 5 and len(wordlist) <= 10:
             return wordlist, letters
