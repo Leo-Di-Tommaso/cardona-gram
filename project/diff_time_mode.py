@@ -47,6 +47,7 @@ def time_mode():
 
         print('Time is up!!!')
         print(f'You scored {points_round} points.')
+        points+=points_round
         print(f'You did not guess {w}')
 
         check = input('Do you want to play another round? (yes/no) ')
