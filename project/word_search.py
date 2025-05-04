@@ -12,8 +12,9 @@ def csv_search(word):
             if word in row[0] and len(row[0]) == len(word):
                 print(word)
                 return True
-            else:
-                return False
+            # else:
+            #     return False
+    return False
 
 
 # ONLINE LOOKUP:
