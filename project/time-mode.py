@@ -11,7 +11,7 @@ def main():
     points = 0
     # introduction to game
     print('Welcome to Anagrams!\nThis is a CS 32 Final Project\nMade by Leo, Tim and Ana')
-    mama=input('Do you need instructions?(yes/no)')
+    mama=input('Do you need instructions?(yes/no) ')
     if mama=='yes':
         print('You will receive a letter set consisting out of 5 letters.\nGuess as many words as you can.\nYou may only use every letter ONCE.')
         print('You have 60 seconds per round to guess as many words as you can.')
@@ -25,25 +25,28 @@ def main():
         print(f'You have to guess {len(w)} word(s)')
         print('Timer starts now!')
 
-        start=time.time()
-        limit=60
+        
         points_round=0
-
-        while time.time()<= limit:
-
+       
+        start_time = time.time()
+        
+        if not time.time() - start_time > 5:
             word = input('Word: ')
-            if word in w:
-                points_round += len(word)
-                print(f'That is a valid word! You earned {len(word)} points.')
-                w.remove(word)
-                print(f'You have {len(w)} words left to guess')
+        else:
+            raise ValueError("Time's up!")
+        
+        if word in w:
+            points_round += len(word)
+            print(f'That is a valid word! You earned {len(word)} points.')
+            w.remove(word)
+            print(f'You have {len(w)} words left to guess')
 
-                if len(w)==0:
-                    print('You guessed all the word. Congrats!')
-                    break
-            else:
-                print('That is not a valid word! Try again!')
-            
+            if len(w)==0:
+                print('You guessed all the word. Congrats!')
+                break
+        else:
+            print('That is not a valid word! Try again!')
+
             
         print('Time is up!!!')
         print(f'You scored {points_round} points this round')
