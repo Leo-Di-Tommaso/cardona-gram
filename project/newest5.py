@@ -13,20 +13,23 @@ def main():
 
         print('Creating a letter set now...')
 
+        # create a letter set of 6 letters with 5 to 10 possible words to find.
         w, letters = check_words_5_t_10()
         print(f'Your letter set is: {letters}')
         print(f'Possible words: {len(w)}')
         print('You may now begin finding words with this letter set!')
 
+        guessed_words = []
 
-
+        # while True loop for every letter set
         while True:
             word = input('Word: ')
             if word in w:
                 points += len(word)
                 print(f'That is a valid word! You earned {len(word)} points and are now at {points} total points')
                 w.remove(word)
-                print(f'You have {len(w)} word(s) left to guess in {letters}')
+                guessed_words.append(word)
+                print(f'You have {len(w)} word(s) left to guess in {letters}. You already guessed {guessed_words}')
                 if len(w)==0:
                     break       
             else:
