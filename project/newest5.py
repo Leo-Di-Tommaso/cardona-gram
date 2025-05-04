@@ -18,7 +18,7 @@ def main():
         print(f'Possible words: {len(w)}')
         print('You may now begin finding words with this letter set!')
 
-
+        guessed_words = []
 
         while True:
             word = input('Word: ')
@@ -26,7 +26,8 @@ def main():
                 points += len(word)
                 print(f'That is a valid word! You earned {len(word)} points and are now at {points} total points')
                 w.remove(word)
-                print(f'You have {len(w)} word(s) left to guess in {letters}')
+                guessed_words.append(word)
+                print(f'You have {len(w)} word(s) left to guess in {letters}. You already guessed {guessed_words}')
                 if len(w)==0:
                     break       
             else:
