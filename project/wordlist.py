@@ -76,5 +76,11 @@ def check_words1():
             return wordlist, letters # because we need letters for main()
             
 
-# print(check_words1())
-# gen_words(['a','f','s','l'])
+def check_words3():
+    '''this function makes sure that the generated word list has at least 3 possible words, otherwise the game
+    can't really work'''
+    while True:
+        letters = get_letters2()
+        wordlist = gen_words(letters)
+        if len(wordlist) >= 3:
+            return wordlist, letters

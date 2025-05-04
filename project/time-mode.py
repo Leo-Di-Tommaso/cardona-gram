@@ -1,11 +1,7 @@
-import random
 import time
-# from word_search import offline_lookup, online_lookup
-from wordlist import gen_words, check_words, get_letters, check_words1
+from wordlist import check_words3
 
-# compare input of the user to a dictonary
-# I have no idea how to access the dictonary yet, there was no API
-    
+
     
 def main():
     points = 0
@@ -16,10 +12,10 @@ def main():
         print('You will receive a letter set consisting out of 5 letters.\nGuess as many words as you can.\nYou may only use every letter ONCE.')
         print('You have 60 seconds per round to guess as many words as you can.')
     #use gen_words to get user input of how many letters he wants, and to create the letter_set
-    
+    checkpoint=input('If you are ready to start press any key')
     while True:
         print('Creating a letter set now. This can take up to 2 minutes...')
-        w, letters = check_words1()
+        w, letters = check_words3()
     
         print(f'Your letter set is: {letters}')
         print(f'You have to guess {len(w)} word(s)')
@@ -30,22 +26,21 @@ def main():
        
         start_time = time.time()
         
-        if not time.time() - start_time > 5:
+        while time.time() - start_time <= 30:
             word = input('Word: ')
-        else:
-            raise ValueError("Time's up!")
         
-        if word in w:
-            points_round += len(word)
-            print(f'That is a valid word! You earned {len(word)} points.')
-            w.remove(word)
-            print(f'You have {len(w)} words left to guess')
+        
+            if word in w:
+                points_round += len(word)
+                print(f'That is a valid word! You earned {len(word)} points.')
+                w.remove(word)
+                print(f'You have {len(w)} words left to guess')
 
-            if len(w)==0:
-                print('You guessed all the word. Congrats!')
-                break
-        else:
-            print('That is not a valid word! Try again!')
+                if len(w)==0:
+                    print('You guessed all the word. Congrats!')
+                    break
+            else:
+                print('That is not a valid word! Try again!')
 
             
         print('Time is up!!!')
