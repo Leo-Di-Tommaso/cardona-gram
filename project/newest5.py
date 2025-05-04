@@ -25,7 +25,10 @@ def base():
 
         # while True loop for every letter set
         while True:
-            word = input('Word: ')
+            word = input('Word (Enter x to leave): ')
+            if word == "x":
+                print(f'Ending the round!')                
+                break
             if word in w:
                 points += len(word)
                 print(f'That is a valid word! You earned {len(word)} points and are now at {points} total points')
@@ -33,11 +36,12 @@ def base():
                 guessed_words.append(word)
                 print(f'You have {len(w)} word(s) left to guess in {letters}. You already guessed {guessed_words}')
                 if len(w)==0:
+                    print("You guessed all the words!")
                     break       
             else:
                 print('That is not a valid word! Try again!')
 
-        checkpoint = input('You guessed all the words. Do you want to play another round?\nType "x" to end the game, or any other key to continue: ')
+        checkpoint = input('Do you want to play another round?\nType "x" to end the game, or any other key to continue: ')
         # The only way for the game to end
         if checkpoint == 'x':
             print(f'Game Over! Your total score is {points} points.')
