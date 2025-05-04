@@ -84,3 +84,13 @@ def check_words3():
         wordlist = gen_words(letters)
         if len(wordlist) >= 3:
             return wordlist, letters
+        
+
+def check_words_5_t_10():
+    '''this function makes sure that the generated word list has at least 3 possible words, otherwise the game
+    can't really work'''
+    while True:
+        letters = get_letters()
+        wordlist = gen_words(letters)
+        if len(wordlist) >= 5 and len(wordlist) <= 10:
+            return wordlist, letters
