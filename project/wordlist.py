@@ -6,32 +6,25 @@ from word_search import online_lookup, offline_lookup, csv_search
 from itertools import permutations
 import enchant
 
-def get_letters():
+def get_letters(n):
     '''creates a list of random letters to be used in the game'''
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    letter_set = random.sample(alphabet, 6)
-    return letter_set
-
-
-def get_letters2():
-    '''creates a list of random letters to be used in the game'''
-    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    letter_set = random.sample(alphabet, 5)
+    letter_set = random.sample(alphabet, n)
     return letter_set
    
 
 def gen_words(letters):
     '''This function recalls the function get_letters(). it then uses the list of letters to 
     create permutations of the letters with different lenghts. the permutations are then joined together into words 
-    and checked in an online dictionary. if they exist, they are added to a list of words that exist that the client 
+    and checked in a dictionary. if they exist, they are added to a list of words that exist that the client 
     will then try to guess'''
     words = []
-    # letters = get_letters()
     print(f'DEBUG {letters}')
 
     ## create permutations 
     for k in range(3,7,1):
         combinations = [''.join(x) for x in permutations(letters, r=k)]
+
         for word in combinations:
           #  if online_lookup(word): 
           #  if offline_lookup(word):
@@ -42,30 +35,27 @@ def gen_words(letters):
     
 
 def check_words1():
-    '''this function makes sure that the generated word list has at least 3 possible words, otherwise the game
-    can't really work'''
+    '''this function generates letters, then words and then makes sure that the generated word list has more than 1 word'''
     while True:
-        letters = get_letters2()
+        letters = get_letters(5)
         wordlist = gen_words(letters)
         if len(wordlist) >= 1:
             return wordlist, letters # because we need letters for main()
             
 
 def check_words3():
-    '''this function makes sure that the generated word list has at least 3 possible words, otherwise the game
-    can't really work'''
+    '''this function generates letters, then words and then makes sure that the generated word list has more than 3 words'''
     while True:
-        letters = get_letters2()
+        letters = get_letters(5)
         wordlist = gen_words(letters)
         if len(wordlist) >= 3:
             return wordlist, letters
         
 
 def check_words_5_t_10():
-    '''this function makes sure that the generated word list has at least 3 possible words, otherwise the game
-    can't really work'''
+    '''this function generates letters, then words and then makes sure that the generated word list has between 5 and 10 words'''
     while True:
-        letters = get_letters()
+        letters = get_letters(6)
         wordlist = gen_words(letters)
         if len(wordlist) >= 5 and len(wordlist) <= 10:
             return wordlist, letters
