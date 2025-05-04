@@ -27,7 +27,7 @@ def main():
        
         start_time = time.time()
         
-        while time.time() - start_time <= 30:
+        while time.time() - start_time <= 60:
             word = input('Word: ')
         
         
