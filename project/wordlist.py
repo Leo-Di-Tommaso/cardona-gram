@@ -19,7 +19,7 @@ def gen_words(letters):
     and checked in a dictionary. if they exist, they are added to a list of words that exist that the client 
     will then try to guess'''
     words = []
-    print(f'DEBUG {letters}')
+    # print(f'DEBUG {letters}')
 
     ## create permutations 
     for k in range(3,7,1):
@@ -30,8 +30,9 @@ def gen_words(letters):
           #  if offline_lookup(word):
             if csv_search(word):
                 words.append(word)                                  
-    print(f'DEBUG: the possible words with the generated letters are: {words}')
-    return words 
+    # print(f'DEBUG: the possible words with the generated letters are: {words}')
+    return words
+    
     
 
 def check_words1():

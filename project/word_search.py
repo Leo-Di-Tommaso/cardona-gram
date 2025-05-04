@@ -10,7 +10,6 @@ def csv_search(word):
         csv_reader = csv.reader(file)
         for row in csv_reader:
             if word in row[0] and len(row[0]) == len(word):
-                print(word)
                 return True
             # else:
                 # return False
@@ -24,7 +23,7 @@ def online_lookup(word):
     url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
     response = r.get(url)
     if response.status_code == 200:
-        print(f"DEBUG: {word} is a word!")
+        # print(f"DEBUG: {word} is a word!")
         return True
     else:
         return False
