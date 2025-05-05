@@ -1,7 +1,7 @@
 import time
 from wordlist import check_words3
 
-def time_mode():
+def xtreme_mode():
     '''This function allows the player to play the time gamemode, where the the user has to write as many anagrams as possible in 1 minute from one or more letter sets. 
     It creates a list of letters, then a list of words that the player has to gueess. Then, a timer starts and the player has to input words which are then checked against the
     previously generated list of words. Each word gives the player as many points as there are letters in it. Once every word is guessed for a letter set, another one is generated
@@ -77,7 +77,7 @@ def time_mode():
             break
 
 def main():      
-    time_mode()
+    xtreme_mode()
                         
 
 if __name__ == '__main__':

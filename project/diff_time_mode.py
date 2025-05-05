@@ -11,8 +11,8 @@ def time_mode():
     # introduction to game 
     if input('Do you need instructions? (yes/no) ') == 'yes':
         print('You will receive a letter set consisting out of 5 letters.\nGuess as many words as you can.' \
-        '\nYou may only use every letter ONCE. \n You have 60 seconds to guess as many words as you can.' \
-        '\n If you find all the words to one letter set, a new one will be generated.')
+        '\nYou may only use every letter ONCE. \nYou have 60 seconds to guess as many words as you can.' \
+        '\nIf you find all the words to one letter set, a new one will be generated.')
 
     input('If you are ready to start press any key')
         
