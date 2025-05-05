@@ -50,8 +50,8 @@ def xtreme_mode():
             else:
                 lives=lives-1
                 hearts = lives * "\u2764\ufe0f " 
-                print('That is not a valid word! Try again!')
                 if lives !=0:
+                    print('That is not a valid word! Try again!')
                     print(f'You have {hearts} lives.')
 
         print('Game Over!!!')
