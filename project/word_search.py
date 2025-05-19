@@ -5,12 +5,14 @@ import csv
 import os
 def csv_search(word):
     '''This function, given a word, checks if it's an actual word by checking it against a csv file with approximately 4000 of the most common English words'''
-    file_path = os.path.join("project","files","4000-most-common-english-words-csv.csv")
+    # file_path = os.path.join("project","files","4000-most-common-english-words-csv.csv")
+    file_path = os.path.join("project","files","it_full.csv")
     # file_path = os.path.join("project","files","wordlist.10000.csv")
     with open(file_path, 'r') as file:
         csv_reader = csv.reader(file)
         for row in csv_reader:
-            if word in row[0] and len(row[0]) == len(word):
+            items = row.split()
+            if word in items[0] and len(items[0]) == len(word):
                 return True
             # else:
                 # return False
